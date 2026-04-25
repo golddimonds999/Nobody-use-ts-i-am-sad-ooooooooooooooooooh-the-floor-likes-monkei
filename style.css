@@ -24,7 +24,21 @@ h1 {
   color: #4da3ff;
 }
 
-/* JOIN BUTTON (original style feel) */
+/* DISCORD NOW NORMAL (NOT FIXED POSITION) */
+.discord {
+  margin-top: 10px;
+}
+
+.discord a {
+  color: white;
+  background: #5865F2;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* JOIN BUTTON (kept top right like original) */
 .join-btn {
   position: fixed;
   top: 15px;
@@ -39,21 +53,7 @@ h1 {
   z-index: 9999;
 }
 
-/* DISCORD BUTTON */
-.discord-btn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  background: #5865F2;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  z-index: 9999;
-}
-
-/* GRID BACK TO 4 COLUMNS */
+/* GRID (4 columns restored) */
 .games {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -63,7 +63,6 @@ h1 {
   margin: auto;
 }
 
-/* GAME CARD */
 .game-card {
   background: #222;
   border-radius: 12px;
@@ -123,7 +122,6 @@ iframe {
   top: 10px;
   font-size: 30px;
   padding: 10px;
-  z-index: 10;
 }
 
 .close-btn {
