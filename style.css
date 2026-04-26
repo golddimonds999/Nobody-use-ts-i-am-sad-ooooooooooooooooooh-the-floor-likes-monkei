@@ -131,3 +131,7 @@ iframe {
 .fullscreen-btn {
   right: 60px;
 }
+
+iframe {
+  transform: translateZ(0);
+}
