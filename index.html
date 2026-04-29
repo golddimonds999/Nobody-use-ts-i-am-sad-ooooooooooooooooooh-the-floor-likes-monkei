@@ -10,30 +10,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .info-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(8px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:999999;
+    }
+
+    .info-box{
+      width:min(92vw,750px);
+      height:min(70vh,520px);
+      background:#222;
+      color:#fff;
+      border-radius:22px;
+      box-shadow:0 25px 80px rgba(0,0,0,0.6);
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+      font-family:'Montserrat', Arial, sans-serif;
+    }
+
+    .info-title{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    .info-text{
+      font-size:16px;
+      line-height:1.6;
+      color:#ddd;
+      overflow-y:auto;
+      height:calc(100% - 60px);
+      padding-right:6px;
+    }
+
+    .info-close{
+      position:absolute;
+      top:10px;
+      right:12px;
+      font-size:22px;
+      padding:6px 10px;
+      background:rgba(255,255,255,0.1);
+      border-radius:8px;
+      cursor:pointer;
+      user-select:none;
+    }
+
+    .info-close:hover{
+      background:rgba(255,255,255,0.2);
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- TOP RIGHT JOIN BUTTON (kept like original) -->
   <a class="join-btn" href="https://joincarsonsmp.github.io" target="_blank">
     Join the Carson Minecraft server!
   </a>
 
   <header>
     <h1>Carson SMP Games</h1>
-
     <h1>VOTE DARYL FOR PRESIDENT!!!</h1>
-
     <div class="subtitle">
       Updates daily! Suggest games
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_sbc6CRZuYDlBWvWJkabXiVyQ70CF6iRISkzowsqB4AxSQ/viewform?usp=sharing&ouid=105447127997926674664" target="_blank">
-        here
-      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_sbc6CRZuYDlBWvWJkabXiVyQ70CF6iRISkzowsqB4AxSQ/viewform?usp=sharing&ouid=105447127997926674664" target="_blank">here</a>
     </div>
-
   </header>
 
-  <!-- GAMES -->
+  <div class="info-overlay" id="infoPopup">
+    <div class="info-box">
+      <div class="info-close" id="infoClose">✖</div>
+      <div class="info-title">Welcome</div>
+      <div class="info-text">
+        You can edit this text anytime.<br><br>
+        iPad-style popup for announcements, updates, or rules.
+      </div>
+    </div>
+  </div>
+
   <div class="games" id="gameGrid">
 
     <div class="game-card" data-url="https://smapskajendfjshwbekf-prog.github.io/newcargame/">
@@ -151,101 +212,19 @@
       <div class="game-title">(NEW) Basket Random</div>
     </div>
 
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
-
-    <div class="game-card empty">
-      <div class="game-title">Game in progress!</div>
-    </div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
 
   </div>
 
-  <!-- POPUP -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <span class="fullscreen-btn" id="fsBtn">⛶</span>
@@ -255,29 +234,28 @@
   </div>
 
   <script>
-    const popup = document.getElementById("popup");
-    const frame = document.getElementById("gameFrame");
+    const infoPopup=document.getElementById("infoPopup");
+    document.getElementById("infoClose").onclick=()=>infoPopup.style.display="none";
 
-    document.getElementById("gameGrid").addEventListener("click", (e) => {
-      const card = e.target.closest(".game-card");
-      if (!card || !card.dataset.url) return;
+    const popup=document.getElementById("popup");
+    const frame=document.getElementById("gameFrame");
 
-      popup.style.display = "flex";
-      frame.src = card.dataset.url;
+    document.getElementById("gameGrid").addEventListener("click",e=>{
+      const card=e.target.closest(".game-card");
+      if(!card||!card.dataset.url)return;
+      popup.style.display="flex";
+      frame.src=card.dataset.url;
     });
 
-    document.getElementById("closeBtn").onclick = () => {
-      popup.style.display = "none";
-      frame.src = "";
+    document.getElementById("closeBtn").onclick=()=>{
+      popup.style.display="none";
+      frame.src="";
     };
 
-    document.getElementById("fsBtn").onclick = () => {
-      const el = document.querySelector(".popup-content");
-      if (!document.fullscreenElement && el.requestFullscreen) {
-        el.requestFullscreen().catch(() => {});
-      } else {
-        document.exitFullscreen();
-      }
+    document.getElementById("fsBtn").onclick=()=>{
+      const el=document.querySelector(".popup-content");
+      if(!document.fullscreenElement&&el.requestFullscreen)el.requestFullscreen().catch(()=>{});
+      else document.exitFullscreen();
     };
   </script>
 
