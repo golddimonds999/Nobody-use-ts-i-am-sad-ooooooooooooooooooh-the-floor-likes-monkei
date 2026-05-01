@@ -77,12 +77,34 @@
 
   <header>
     <h1>Carson SMP Games</h1>
-    <h2>VOTE DARYL FOR PRESIDENT!!!</h2>
+    <h1>VOTE DARYL FOR PRESIDENT!!!</h1>
     <div class="subtitle">
       Updates daily! Suggest games
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_sbc6CRZuYDlBWvWjKabXiVyQ70CF6iRISkzowsqB4AxSQ/viewform?usp=sharing&ouid=105447127997926674664" target="_blank">here</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_sbc6CRZuYDlBWvWJkabXiVyQ70CF6iRISkzowsqB4AxSQ/viewform?usp=sharing&ouid=105447127997926674664" target="_blank">here</a>
     </div>
   </header>
+
+<div class="info-overlay" id="infoPopup">
+  <div class="info-box">
+    <div class="info-close" id="infoClose">✖</div>
+
+    <div class="info-title">New Announcement!</div>
+
+    <div class="info-text">
+      I am working on a new website that is easier to get to and will work a lot better. It will include new games, and a faster way to run the games. To see the progress, go to 
+      <a href="https://joincarsonsmp.github.io/" target="_blank" style="color:#4da3ff;">
+        https://joincarsonsmp.github.io/
+      </a>
+      <br><br>
+
+      I am also making a Minecraft server. To join it, click the button in the top right corner — anybody in the school district can join. There is a Google form you need to fill out before you can join. To join, go to 
+      <a href="https://joincarsonsmp.github.io/joining/" target="_blank" style="color:#4da3ff;">
+        https://joincarsonsmp.github.io/joining/
+      </a>
+    </div>
+
+  </div>
+</div>
 
   <div class="games" id="gameGrid">
 
@@ -201,14 +223,51 @@
       <div class="game-title">(NEW) Basket Random</div>
     </div>
 
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
+
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="fullscreen-btn" id="fsBtn">⛶</span>
+      <span class="close-btn" id="closeBtn">✖</span>
+      <iframe id="gameFrame" loading="lazy"></iframe>
+    </div>
   </div>
 
   <script>
+    const infoPopup=document.getElementById("infoPopup");
+    document.getElementById("infoClose").onclick=()=>infoPopup.style.display="none";
+
+    const popup=document.getElementById("popup");
+    const frame=document.getElementById("gameFrame");
+
     document.getElementById("gameGrid").addEventListener("click",e=>{
       const card=e.target.closest(".game-card");
       if(!card||!card.dataset.url)return;
-      window.open(card.dataset.url,"_blank");
+      popup.style.display="flex";
+      frame.src=card.dataset.url;
     });
+
+    document.getElementById("closeBtn").onclick=()=>{
+      popup.style.display="none";
+      frame.src="";
+    };
+
+    document.getElementById("fsBtn").onclick=()=>{
+      const el=document.querySelector(".popup-content");
+      if(!document.fullscreenElement&&el.requestFullscreen)el.requestFullscreen().catch(()=>{});
+      else document.exitFullscreen();
+    };
   </script>
 
 </body>
