@@ -75,7 +75,7 @@
     Join the Carson Minecraft server!
   </a>
 
-  <!-- INFO POPUP (FIXED MISSING ELEMENT) -->
+  <!-- INFO POPUP (still kept since you were using it) -->
   <div class="info-overlay" id="infoPopup">
     <div class="info-box">
       <div class="info-close" id="infoClose">✖</div>
@@ -212,46 +212,19 @@
       <div class="game-title">(NEW) Basket Random</div>
     </div>
 
-    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
-    <div class="game-card empty"><div class="game-title">Game in progress!</div></div>
-
-  </div>
-
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <span class="fullscreen-btn" id="fsBtn">⛶</span>
-      <span class="close-btn" id="closeBtn">✖</span>
-      <iframe id="gameFrame" loading="lazy"></iframe>
-    </div>
   </div>
 
   <script>
     const infoPopup=document.getElementById("infoPopup");
-    document.getElementById("infoClose").onclick=()=>infoPopup.style.display="none";
-
-    const popup=document.getElementById("popup");
-    const frame=document.getElementById("gameFrame");
+    document.getElementById("infoClose").onclick=()=>{
+      infoPopup.style.display="none";
+    };
 
     document.getElementById("gameGrid").addEventListener("click",e=>{
       const card=e.target.closest(".game-card");
       if(!card||!card.dataset.url)return;
-      popup.style.display="flex";
-      frame.src=card.dataset.url;
+      window.open(card.dataset.url,"_blank");
     });
-
-    document.getElementById("closeBtn").onclick=()=>{
-      popup.style.display="none";
-      frame.src="";
-    };
-
-    document.getElementById("fsBtn").onclick=()=>{
-      const el=document.querySelector(".popup-content");
-      if(!document.fullscreenElement && el.requestFullscreen){
-        el.requestFullscreen().catch(()=>{});
-      } else {
-        document.exitFullscreen?.();
-      }
-    };
   </script>
 
 </body>
